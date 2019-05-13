@@ -3,7 +3,6 @@
 
 Hello there! This is a Flow note.
 
-___
 
 ##Installation
 
