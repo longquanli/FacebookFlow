@@ -203,7 +203,7 @@ function helper(value: ?number) {
 
 ### Variable Types
 
-<span style="color:red">*</span> __If statements, functionsm and other conditionally run code can all prevent Flow from being able to figure out precisely what a type will be.__
+<span style="color:red">*</span> __If statements, functions and other conditionally run code can all prevent Flow from being able to figure out precisely what a type will be.__
 
 ~~~js
 // @flow
@@ -277,3 +277,185 @@ __Exact Object Types__
 ~~~js
 // @flow
 var foo: {| foo: string |} = {foo: "Hello", bar: "World" };    //Error
+~~~
+
+### Array Types
+
+~~~js
+// @flow
+let arr1: Array<boolean> = [true, false, true]
+let arr2: Array<mixed> = [1, [], "three"]
+let arr3: number[] = [0, 1, 2, 3]
+let arr4: ?number[] = [1, 2]
+let arr5: ?number[] = null
+let arr6: (?number)[] = [null]
+~~~
+__ReadOnlyArray__
+
+~~~js
+// @flow
+const arr: $ReadOnlyArray<number> = [1, 2, 3]
+const first = arr[0]       //Works
+arr[1] = 20                //Error
+arr.push(4)                //Error
+~~~
+### Class Types
+__Class Methods__
+
+~~~js
+class MyClass {
+	method(value: string): number {
+		//...
+	}
+}
+~~~
+__Class Fields (Properties)__
+
+1 Fields inside
+
+~~~js
+// @flow
+class MyClass {
+	prop: number;
+	method() {
+		this.prop = 42
+	}
+}
+~~~
+
+2 Fields outside
+
+~~~js
+// @flow
+function MyClass {
+	static constant: number;
+	static helper: (number) => number
+}
+
+MyClass.helper = (x: number): number => {
+	return x + 1
+}
+MyClass.constant = 52
+~~~
+
+__Class Generics__
+
+~~~js
+class MyClass<A, B, C> {
+	property: A;
+	method(val: B): c {
+		//...
+	}
+}
+
+var val: MyClass<number, boolean, string> = new MyClass(1, true, 'three')
+~~~
+
+### Type Aliases
+<span style="color:red"}>Type alias</span> can used for complicated types reuse purpose.
+
+~~~js
+type MyObject = {
+	foo: number,
+	bar: boolean,
+	baz: string
+}
+var val: MyObject = {}
+function method(val: MyObject){
+	//...
+}
+class Foo {
+	constuctor(val: MyObject) {
+		//...
+	}
+}
+~~~
+
+## Comonents
+### Class Comonents
+__Adding Props and State__
+
+~~~js
+// @flow
+import React, {Component} from 'react';
+type Props = {
+	foo: number,
+	bar?: string,
+}
+type State = {
+	count: number,
+}
+
+class MyComponent extends Component<Props, State> {
+	state = {
+		count: 0,
+	}
+	componentDidMount() {
+		setInterval(() => {
+			this.setState(prevState => ({
+			count: prevState.count + 1,
+			}))
+		}, 1000)
+	}
+	render() {
+		this.props.doesNotExist;    //Error
+		return <div>{this.props.bar} has {this.state.count} numbers.</div>
+	}
+}
+
+<MyComponent foo={32} />
+~~~
+__Default Props__
+
+~~~js
+import React, {Component} from 'react';
+
+type Props = {
+	foo: number,
+}
+
+class MyComponent extends React.Component<Props> {
+	static defaultProps = {
+		foo: 52
+	};
+}
+
+<MyComponent />
+~~~
+
+### Stateless Functional Components
+__Normal__
+
+~~~js
+import React from 'react';
+type Props = {
+	foo: number,
+	bar?: string,
+}
+function MyComponent(props: Props) {
+	props.doesNoteExist;     //Error
+	return <div>{this.props.bar}</div>;
+}
+
+<MyComponent foo={42} />
+~~~
+__Default Props__
+
+~~~js
+import React from 'react';
+
+type Props = {
+	foo: number,
+}
+
+function MyComponent(props: Props) {
+	//...
+}
+
+MyComponent.defaultProps = {
+	foo: 42,
+}
+
+<MyComponent />
+~~~
+<span style="color: red">*</span> You don't need to make foo nullable in your Props type. Flow will make sure that foo is optional if you have a default prop for foo.
