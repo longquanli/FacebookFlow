@@ -5,6 +5,8 @@ Hello there! This is a Flow note.
 
 [toc]
 
+___
+
 ##Installation
 __1.Yarn and Babel__:
 >First install babel-cli and babel-preset-flow:
