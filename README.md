@@ -3,6 +3,9 @@
 
 Hello there! This is a Flow note.
 
+[toc]
+
+___
 
 ## Installation
 
