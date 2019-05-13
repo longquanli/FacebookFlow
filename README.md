@@ -6,7 +6,7 @@ Hello there! This is a Flow note.
 [toc]
 ___
 
-##Installation
+## Installation
 
 __1.Yarn and Babel__:
 >First install babel-cli and babel-preset-flow:
@@ -38,7 +38,7 @@ yarn run flow
 ~~~
 __Reference link:__ [https://flow.org/en/docs/install/](https://flow.org/en/docs/install/)
 
-##Usage
+## Usage
 
 __1. Initialize Your Project:__
 
@@ -56,9 +56,9 @@ __3. Stop:__
 flow stop
 ~~~
 
-##Type Annotations
+## Type Annotations
 
-###Primitive Types
+### Primitive Types
 
 * Booleans: true, false, !!x, Boolean(x)
 * Strings: "hello", "foo" + 42, "foo" + String({}), "foo" + [].toString(), "" + JSON.stringify({})
@@ -143,5 +143,5 @@ helper(null);               //Error
 helper();                   //Works
 ~~~
 
-###Literal Types
+### Literal Types
 
