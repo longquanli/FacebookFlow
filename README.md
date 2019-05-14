@@ -19,7 +19,7 @@ Hello there! This is a Flow note.
 		* [Class Types](#class-types)
 		* [Type Aliases](#type-aliases)
 		* [Tuple Types](#tuple-types)
-	* [Comonents](#comonents)
+	* [Components](#components)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
 
@@ -397,8 +397,8 @@ class Foo {
 let tuple1: [number, boolean, string] = [1, true, "three"]
 ~~~
 
-## Comonents
-### Class Comonents
+## Components
+### Class Components
 __Adding Props and State__
 
 ~~~js
