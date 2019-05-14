@@ -8,11 +8,10 @@ Hello there! This is a Flow note.
 __Table of Contents__
 
 * [Flow](#flow)
- * [Installation](#installation)
- * [Usage](#Usage)
- * [Type Annotations](#type-annotations)
- * [Comonents](#comonents)
- 
+	* [Installation](#installation)
+	* [Usage](#Usage)
+	* [Type Annotations](#type-annotations)
+	* [Comonents](#comonents)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
 
