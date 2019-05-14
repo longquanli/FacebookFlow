@@ -10,10 +10,11 @@ __Table of Contents__
 * [Flow](#flow)
  * [Installation](#installation)
  * [Usage](#Usage)
- * [Type Annotations](#typeAnnotations)
+ * [Type Annotations](#type-annotations)
  * [Comonents](#comonents)
- 		* [Class Components](#classComponents)
- 		* [Stateless Functional Components](#statelessFunctionalComponents)
+ 
+ 		* [Class Components](#class-components)
+ 		* [Stateless Functional Components](#stateless-functional-components)
 
 ___
 
