@@ -3,7 +3,7 @@
 
 Hello there! This is a Flow note.
 
-[toc]
+[TOC]
 
 ___
 
@@ -242,7 +242,7 @@ async function method(): Promise<number> {
 }
 ~~~
 
-__Object Types__
+### Object Types
 
 ~~~js
 // @flow
@@ -369,6 +369,14 @@ class Foo {
 		//...
 	}
 }
+~~~
+
+### Tuple Types
+<span style="color:red">Tuple</span> are a sort of list but with a limited set of items. It is strictly enforced and don't match array types.
+
+~~~js
+// @flow
+let tuple1: [number, boolean, string] = [1, true, "three"]
 ~~~
 
 ## Comonents
