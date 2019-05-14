@@ -3,7 +3,15 @@
 
 Hello there! This is a Flow note.
 
-[TOC]
+[toc]
+
+__Table of Contents__
+
+* [Flow](#flow)
+ * [Installation](#installation)
+  * [Usage](#Usage)
+  * [Type Annotations](#type Annotations)
+  * [Comonents](#comonents)	
 
 ___
 
@@ -372,7 +380,7 @@ class Foo {
 ~~~
 
 ### Tuple Types
-<span style="color:red">Tuple</span> are a sort of list but with a limited set of items. It is strictly enforced and don't match array types.
+<span style="color:red">__Tuple__</span> are a sort of list but with a limited set of items. It is strictly enforced and don't match array types.
 
 ~~~js
 // @flow
