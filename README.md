@@ -3,14 +3,22 @@
 
 Hello there! This is a Flow note.
 
-[toc]
-
-__Table of Contents__
-
 * [Flow](#flow)
 	* [Installation](#installation)
 	* [Usage](#Usage)
 	* [Type Annotations](#type-annotations)
+		* [Primitive Types](#primitive-types)
+		* [Literal Types](#literal-types)
+		* [Mixed Types](#mixed-types)
+		* [Any Types](#any-types)
+		* [Maybe Types](#maybe-types)
+		* [Variable Types](#variable-types)
+		* [Function Types](#function-types)
+		* [Object Types](#object-types)
+		* [Array Types](#array-types)
+		* [Class Types](#class-types)
+		* [Type Aliases](#type-aliases)
+		* [Tuple Types](#tuple-types)
 	* [Comonents](#comonents)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
