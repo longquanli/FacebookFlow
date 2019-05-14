@@ -9,9 +9,11 @@ __Table of Contents__
 
 * [Flow](#flow)
  * [Installation](#installation)
-  * [Usage](#Usage)
-  * [Type Annotations](#type Annotations)
-  * [Comonents](#comonents)	
+ * [Usage](#Usage)
+ * [Type Annotations](#typeAnnotations)
+ * [Comonents](#comonents)
+ 		* [Class Components](#classComponents)
+ 		* [Stateless Functional Components](#statelessFunctionalComponents)
 
 ___
 
