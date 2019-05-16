@@ -3,8 +3,6 @@
 
 Hello there! This is a Flow note.
 
-[Toc]
-
 * [Flow](#flow)
 	* [Installation](#installation)
 	* [Usage](#Usage)
@@ -23,7 +21,19 @@ Hello there! This is a Flow note.
 		* [Tuple Types](#tuple-types)
 		* [Interface Types](#interface-types)
 		* [Utility Types](#utility-types)
-			* [`$Keys<T>`](#$keys&ltT&gt)
+			* [`$Keys<T>`](#keyst)
+			* [`$Values<T>`](#valuest)
+			* [`$ReadOnly<T>`](#readonlyt)
+			* [`$Exact<T>`](#exactt)
+			* [`$Diff<A, B>`](#diffa-b)
+			* [`$PropertyType<T, K>`](#propertytypet-k)
+			* [`$Rest<A, B>`](#resta-b)
+			* [`$ElementType<T, K>`](#elementtypet-k)
+			* [`$NonMaybeType<T>`](#nonmaybetypet)
+			* [`$ObjMap<T, F>`](#objmapt-f)
+			* [`$Call<F, T...>`](#callf-t)
+			* [`$Class<T>`](#classt)
+			* [`$Shape<T>`](#shapet)
 	* [Components](#components)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
@@ -530,7 +540,7 @@ type Obj = {
 (42: $ElementType<Obj, ''age>)
 ~~~
 
-#### `NonMaybeType<T>`
+#### `$NonMaybeType<T>`
 
 ~~~js
 // @flow
