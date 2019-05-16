@@ -397,7 +397,100 @@ class Foo {
 let tuple1: [number, boolean, string] = [1, true, "three"]
 ~~~
 
+### Interface Types
+Classes in Flow are nominally typed. You can not use one with another one's type even when they have the same exact properties and methods.
+
+~~~js
+// @flow
+class Foo {
+	serialize() {return "foo";}
+}
+class Bar {
+	serialize() {return "Bar";}
+}
+
+const foo: Foo = new Bar();   //Error
+~~~
+
+Use <span style="color:red">__Interface__</span> in order to declear the structure of the class that you are expecting.
+
+~~~js
+// @flow
+interface People()<A, B, C>{
+	write(name: string): string;
+	name: string;
+	hobby?: string;
+	lunch?: { [key: string]: number };
+	jump(height: B, way: A): C;
+	+readOnly: number;
+	-writeOnly: number;
+}
+
+class Alice implements People<string, number, string> {
+	write(name) {
+		return "This is " + name
+	}
+	name = Alice
+	jump(height, way) {
+		return `I can jump ${height} in this ${way}`
+	}
+	People.writeOnly = 3
+	value2 = People.readOnly
+}
+~~~
+
+### Utility Types
+__$Keys<T>__: make sure keys first.
+
+~~~js
+// @flow
+const countries = {
+	US: "United States",
+	IT: "Italy",
+	FR: "France" 
+};
+type Country = $Keys<typeof countries>
+
+const italy: Country = 'IT';
+const nope: Country = 'nope';    //'nope' is not a country.
+~~~
+
+__$Values<T>__: represents types of value.
+
+~~~js
+// @flow
+type = Props = {
+	name: string,
+	age: number	
+}
+//The following two types are equivalent.
+type PropValues = string | number;
+type Prop$Vales = $Values<Props>
+
+~~~
+
+__$Exact<T>__
+
+~~~js
+// Same
+type ExactUser1 = $Exact<{name: string}>;
+type ExactUser2 = {| name: string |};
+~~~
+
+#### `$shape<T>`
+
+~~~js
+// @type
+type Person = $Shape<{
+	age: number,
+	name: string,
+}>
+const person1: Person = {age: 28};
+~~~
+
+
 ## Components
+
 ### Class Components
 __Adding Props and State__
 
@@ -428,9 +521,9 @@ class MyComponent extends Component<Props, State> {
 		return <div>{this.props.bar} has {this.state.count} numbers.</div>
 	}
 }
-
 <MyComponent foo={32} />
 ~~~
+
 __Default Props__
 
 ~~~js
