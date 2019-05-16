@@ -23,7 +23,7 @@ Hello there! This is a Flow note.
 		* [Tuple Types](#tuple-types)
 		* [Interface Types](#interface-types)
 		* [Utility Types](#utility-types)
-			* [`$Keys<T>`](#`$keys<T>`) 	
+			* [`$Keys<T>`](#keys)
 	* [Components](#components)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
