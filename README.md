@@ -3,6 +3,8 @@
 
 Hello there! This is a Flow note.
 
+[Toc]
+
 * [Flow](#flow)
 	* [Installation](#installation)
 	* [Usage](#Usage)
@@ -19,6 +21,9 @@ Hello there! This is a Flow note.
 		* [Class Types](#class-types)
 		* [Type Aliases](#type-aliases)
 		* [Tuple Types](#tuple-types)
+		* [Interface Types](#interface-types)
+		* [Utility Types](#utility-types)
+			* [`$Keys<T>`](#`$keys<T>`) 	
 	* [Components](#components)
  		* [Class Components](#class-components)
  		* [Stateless Functional Components](#stateless-functional-components)
