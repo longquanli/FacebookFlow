@@ -440,7 +440,7 @@ class Alice implements People<string, number, string> {
 ~~~
 
 ### Utility Types
-__$Keys<T>__: make sure keys first.
+#### `$Keys<T>`
 
 ~~~js
 // @flow
@@ -455,7 +455,7 @@ const italy: Country = 'IT';
 const nope: Country = 'nope';    //'nope' is not a country.
 ~~~
 
-__$Values<T>__: represents types of value.
+#### `$Values<T>`
 
 ~~~js
 // @flow
@@ -469,7 +469,21 @@ type Prop$Vales = $Values<Props>
 
 ~~~
 
-__$Exact<T>__
+#### `$ReadOnly<T>`
+
+~~~js
+// @flow
+type Props = {
+	name: string,
+	age: number,
+}
+type ReadOnlyProps = $ReadOnly<Props>
+function render(props: ReadOnlyProps) {
+	const {name, age} = props;  //Ok
+	props.age = 32;             //Error
+}
+~~~
+#### `$Exact<T>`
 
 ~~~js
 // Same
@@ -477,7 +491,70 @@ type ExactUser1 = $Exact<{name: string}>;
 type ExactUser2 = {| name: string |};
 ~~~
 
-#### `$shape<T>`
+#### `$Diff<A, B>`
+
+#### `$PropertyType<T, K>`
+
+~~~js
+// @flow
+import React, {Component} from 'react'
+class Person extends Component {
+	props: {
+		name: string,
+		jump: ({x: number, y: number}) => string
+	};
+}
+
+const someProps: $PropertyType<Person, 'props'> = {
+	name: 'foo',
+	jump: (data: {x: 5, y: 23}) => return `foo can jump ${x} 			height and ${y} length. `
+}
+~~~
+#### `$Rest<A, B>`
+
+#### `$ElementType<T, K>`
+T could be object, tuple or array
+
+~~~js
+// @flow
+type Obj = {
+	name: string,
+	age: number,
+}
+('Jon': $ElementType<Obj, 'name'>);
+(42: $ElementType<Obj, ''age>)
+~~~
+
+#### `NonMaybeType<T>`
+
+~~~js
+// @flow
+type MaybeName = ?string;
+type Name = $NonMaybeType<MaybeName>;
+
+(null, MaybeName);    // ok
+(null, Name)          // Error
+~~~
+
+#### `$ObjMap<T, F>`
+
+#### `$Call<F, T...>`
+
+#### `$Class<T>`
+
+~~~js
+// @flow
+class Store {}
+class SubStore extends Store {}
+
+function makeStore(storeClass: Class<Store>) {
+	return new storeClass();
+}
+
+(makeStore(Store): Store);
+(makeStore(SubStore): Store);
+~~~
+#### `$Shape<T>`
 
 ~~~js
 // @type
